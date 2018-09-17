@@ -14,23 +14,25 @@ class Account: Printable {
     let id: Int
     var balance: Float
     let currency: Currency
-    let description: String
+    var description: String?
     var offer: String?
     
-    init(id: Int, balance: Float, description: String, optionalOffer: String? = nil, currency: String) {
+    init(id: Int, balance: Float, description: String? = nil, offer: String? = nil, currency: String) {
         self.id = id
         self.balance = balance
-        self.description = description
-        if let _offer = optionalOffer {
-            self.offer = _offer
+        if let description = description {
+            self.description = description
+        }
+        if let offer = offer {
+            self.offer = offer
         }
         self.currency = Currency(rawValue: currency)!
     }
     
     func printClassInfo() {
-        print("\nAccount info\nId: \(id)\nBalance: \(balance)\nCurrency: \(currency.rawValue)\nDescription: \(description)")
-        if let _offer = offer {
-            print("Offer: \(_offer)\n")
+        print("\nAccount info\nId: \(id)\nBalance: \(balance)\nCurrency: \(currency.rawValue)\nDescription: \(description!)")
+        if let offer = offer {
+            print("Offer: \(offer)\n")
         }
     }
 }
@@ -53,23 +55,21 @@ class ReissueInfo: Printable {
     }
 }
 
-class Card: Printable {
-    let id: Int
-    var balance: Float
-    let currency: Currency
+class Card: Account {
+//    let id: Int
+//    var balance: Float
+//    let currency: Currency
     var reissueInfo: ReissueInfo?
     
-    init(id: Int, balance: Float, currency: String, optionalReissueInfo: ReissueInfo? = nil) {
-        self.id = id
+    init(id: Int, balance: Float, currency: String, reissueInfo: ReissueInfo? = nil) {
+        super.init(id: id, balance: balance, currency: currency)
         self.balance = balance
-        if let _reissueInfo = optionalReissueInfo {
-            self.reissueInfo = _reissueInfo
+        if let reissueInfo = reissueInfo {
+            self.reissueInfo = reissueInfo
         }
-        
-        self.currency = Currency(rawValue: currency)!
     }
     
-    func printClassInfo() {
+    override func printClassInfo() {
         print("\nCard info\nId: \(id)\nBalance: \(balance)\nCurrency: \(currency.rawValue)")
         if let _ = reissueInfo {
             reissueInfo?.printClassInfo()
@@ -99,7 +99,7 @@ class ServerResponce: Printable {
 
 
 let ac1 = Account(id: 1, balance: 100, description: "Первый аккаунт", currency: "RUR")
-let ac2 = Account(id: 2, balance: 200, description: "Второй аккаунт", optionalOffer: "Предложение для студентов", currency: "EUR")
+let ac2 = Account(id: 2, balance: 200, description: "Второй аккаунт", offer: "Предложение для студентов", currency: "EUR")
 let accs = [ac1, ac2]
 
 var dateString = "16 --- 09 --- 2018"
@@ -110,7 +110,7 @@ dateFormatter.dateFormat = "dd --- mm --- yyyy"
 var date = dateFormatter.date(from: dateString)
 
 let reissueInfo = ReissueInfo(date: date!, info: "Информация о перевыпуске")
-let card1 = Card(id: 11, balance: 1000, currency: "USD", optionalReissueInfo: reissueInfo)
+let card1 = Card(id: 11, balance: 1000, currency: "USD", reissueInfo: reissueInfo)
 let card2 = Card(id: 12, balance: 2000, currency: "RUR")
 
 let cards = [card1, card2]
