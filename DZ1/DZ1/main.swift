@@ -10,27 +10,32 @@ protocol Printable {
     func printClassInfo()
 }
 
-class Account: Printable {
+class SuperProduct {
     let id: Int
     var balance: Float
     let currency: Currency
-    var description: String?
-    var offer: String?
     
-    init(id: Int, balance: Float, description: String? = nil, offer: String? = nil, currency: String) {
+    init(id: Int, balance: Float, currency: String) {
         self.id = id
         self.balance = balance
-        if let description = description {
-            self.description = description
-        }
+        self.currency = Currency(rawValue: currency)!
+    }
+}
+
+class Account: SuperProduct, Printable {
+    var description: String
+    var offer: String?
+    
+    init(id: Int, balance: Float, description: String, offer: String? = nil, currency: String) {
+        self.description = description
         if let offer = offer {
             self.offer = offer
         }
-        self.currency = Currency(rawValue: currency)!
+        super.init(id: id, balance: balance, currency: currency)
     }
     
     func printClassInfo() {
-        print("\nAccount info\nId: \(id)\nBalance: \(balance)\nCurrency: \(currency.rawValue)\nDescription: \(description!)")
+        print("\nAccount info\nId: \(id)\nBalance: \(balance)\nCurrency: \(currency.rawValue)\nDescription: \(description)")
         if let offer = offer {
             print("Offer: \(offer)\n")
         }
@@ -55,21 +60,17 @@ class ReissueInfo: Printable {
     }
 }
 
-class Card: Account {
-//    let id: Int
-//    var balance: Float
-//    let currency: Currency
+class Card: SuperProduct, Printable {
     var reissueInfo: ReissueInfo?
     
     init(id: Int, balance: Float, currency: String, reissueInfo: ReissueInfo? = nil) {
-        super.init(id: id, balance: balance, currency: currency)
-        self.balance = balance
         if let reissueInfo = reissueInfo {
             self.reissueInfo = reissueInfo
         }
+        super.init(id: id, balance: balance, currency: currency)
     }
     
-    override func printClassInfo() {
+    func printClassInfo() {
         print("\nCard info\nId: \(id)\nBalance: \(balance)\nCurrency: \(currency.rawValue)")
         if let _ = reissueInfo {
             reissueInfo?.printClassInfo()
