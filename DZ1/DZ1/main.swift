@@ -1,12 +1,12 @@
 import Foundation
 
 enum Currency: String {
-    case RUR = "RUR"
-    case USD = "USD"
-    case EUR = "EUR"
+    case RUR
+    case USD
+    case EUR
 }
 
-protocol Printable {
+protocol Printer {
     func printClassInfo()
 }
 
@@ -22,7 +22,7 @@ class SuperProduct {
     }
 }
 
-class Account: SuperProduct, Printable {
+class Account: SuperProduct, Printer {
     var description: String
     var offer: String?
     
@@ -42,7 +42,7 @@ class Account: SuperProduct, Printable {
     }
 }
 
-class ReissueInfo: Printable {
+class ReissueInfo: Printer {
     let date: Date
     let info: String
     let address: String
@@ -60,7 +60,7 @@ class ReissueInfo: Printable {
     }
 }
 
-class Card: SuperProduct, Printable {
+class Card: SuperProduct, Printer {
     var reissueInfo: ReissueInfo?
     
     init(id: Int, balance: Float, currency: String, reissueInfo: ReissueInfo? = nil) {
@@ -78,7 +78,7 @@ class Card: SuperProduct, Printable {
     }
 }
 
-class ServerResponce: Printable {
+class ServerResponce: Printer {
     var cards: [Card]
     var accounts: [Account]
     
@@ -118,7 +118,7 @@ let cards = [card1, card2]
 
 let response = ServerResponce(cards: cards, accounts: accs)
 
-var array: [Printable] = []
+var array: [Printer] = []
 array.append(contentsOf: cards)
 array.append(contentsOf: accs)
 array.append(response)
