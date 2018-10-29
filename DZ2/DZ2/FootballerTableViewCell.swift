@@ -30,5 +30,14 @@ class FootballerTableViewCell: UITableViewCell {
         footballerName.text = footballer.name
         footballerTeam.text = footballer.team
         footballerRating.text = "\(footballer.rating)"
+        toggleDarkTheme(isDarkThemeEnebled: UserSettings.darkThemeEnabled)
+    }
+    
+    func toggleDarkTheme(isDarkThemeEnebled: Bool) {
+        if isDarkThemeEnebled {
+            self.backgroundColor = UserSettings.darkThemeBackgroundColor
+        } else {
+            self.backgroundColor = UserSettings.lightThemeBackgroundColor
+        }
     }
 }

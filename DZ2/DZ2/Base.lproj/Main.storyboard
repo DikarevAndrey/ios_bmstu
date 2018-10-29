@@ -34,10 +34,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vJz-YY-2T0">
-                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="List of players" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vtv-9t-10t">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="xes-Kk-536"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -48,15 +51,14 @@
                                     <constraint firstItem="Vtv-9t-10t" firstAttribute="top" secondItem="vJz-YY-2T0" secondAttribute="top" id="1vj-9d-1aP"/>
                                     <constraint firstItem="Vtv-9t-10t" firstAttribute="leading" secondItem="vJz-YY-2T0" secondAttribute="leading" id="bKe-86-4vB"/>
                                     <constraint firstAttribute="trailing" secondItem="Vtv-9t-10t" secondAttribute="trailing" id="cxC-F9-mbN"/>
-                                    <constraint firstAttribute="height" constant="100" id="lxa-Qk-ZYX"/>
                                     <constraint firstAttribute="bottom" secondItem="Vtv-9t-10t" secondAttribute="bottom" id="yc6-5n-qNX"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jP2-1f-Mkm">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ydn-f6-5zs">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -71,7 +73,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ywL-ka-WyZ">
-                                <rect key="frame" x="0.0" y="164" width="375" height="403"/>
+                                <rect key="frame" x="0.0" y="114" width="375" height="503"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="nan-MM-H71">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -121,6 +123,7 @@
                         <outlet property="pageFooter" destination="jP2-1f-Mkm" id="D97-Am-pru"/>
                         <outlet property="pageFooterLabel" destination="ydn-f6-5zs" id="aVf-MA-Je1"/>
                         <outlet property="pageHeader" destination="vJz-YY-2T0" id="Ooe-ZB-nwb"/>
+                        <outlet property="pageHeaderLabel" destination="Vtv-9t-10t" id="Br8-JB-9Hj"/>
                         <outlet property="tableView" destination="ywL-ka-WyZ" id="U2f-5r-UcN"/>
                         <segue destination="zKM-cJ-0Hd" kind="show" identifier="toFootballerCard" id="hjZ-rK-WpX"/>
                     </connections>
@@ -129,16 +132,49 @@
             </objects>
             <point key="canvasLocation" x="-852" y="5.8470764617691158"/>
         </scene>
-        <!--Settings View Controller-->
+        <!--User Settings View Controller-->
         <scene sceneID="Gs9-YV-Kqc">
             <objects>
-                <viewController id="Nif-lK-ND8" customClass="SettingsViewController" customModule="DZ2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nif-lK-ND8" customClass="UserSettingsViewController" customModule="DZ2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q96-EO-kpD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rbc-ef-5Eg">
+                                <rect key="frame" x="10" y="278.5" width="355" height="110"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Toggle dark theme" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uU1-us-dq6">
+                                        <rect key="frame" x="0.0" y="0.0" width="306" height="110"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2lK-mR-aa3">
+                                        <rect key="frame" x="306" y="0.0" width="51" height="110"/>
+                                        <connections>
+                                            <action selector="darkThemeSwitchValueChanged:" destination="Nif-lK-ND8" eventType="valueChanged" id="pV5-pf-ED3"/>
+                                        </connections>
+                                    </switch>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="4HD-Ju-ZP7"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rbc-ef-5Eg" firstAttribute="leading" secondItem="Wgz-gC-bvn" secondAttribute="leading" constant="10" id="FEz-HZ-7to"/>
+                            <constraint firstItem="Wgz-gC-bvn" firstAttribute="trailing" secondItem="Rbc-ef-5Eg" secondAttribute="trailing" constant="10" id="lZZ-XS-qSP"/>
+                            <constraint firstItem="Rbc-ef-5Eg" firstAttribute="centerX" secondItem="q96-EO-kpD" secondAttribute="centerX" id="oja-R0-S9C"/>
+                            <constraint firstItem="Rbc-ef-5Eg" firstAttribute="centerY" secondItem="q96-EO-kpD" secondAttribute="centerY" id="x82-B1-kJn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Wgz-gC-bvn"/>
                     </view>
+                    <connections>
+                        <outlet property="darkThemeLabel" destination="uU1-us-dq6" id="HKk-jb-Zzf"/>
+                        <outlet property="darkThemeSwitch" destination="2lK-mR-aa3" id="18A-tZ-O1A"/>
+                        <outlet property="userSettingsView" destination="q96-EO-kpD" id="zfE-op-N5d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLq-gH-wx8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -183,6 +219,7 @@
                     <connections>
                         <outlet property="footballerImage" destination="k6p-5Y-vbC" id="Ve7-7D-mzv"/>
                         <outlet property="footballerName" destination="0o5-Q4-f17" id="BYq-aS-3GE"/>
+                        <outlet property="footballerView" destination="zhZ-DW-UTo" id="wdD-3l-JO9"/>
                         <segue destination="tiw-L7-Ih0" kind="show" identifier="toDetailedImage" id="2q6-bo-wEn"/>
                     </connections>
                 </viewController>
@@ -213,6 +250,7 @@
                     </view>
                     <connections>
                         <outlet property="detailedImage" destination="mxf-Tv-fJN" id="tjx-cY-6NT"/>
+                        <outlet property="footballerImageView" destination="k4C-XV-fWV" id="OHK-cQ-Xy7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HFT-1n-nFX" userLabel="First Responder" sceneMemberID="firstResponder"/>

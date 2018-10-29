@@ -11,9 +11,20 @@ import UIKit
 class FootballerViewController: UIViewController {
     @IBOutlet weak var footballerImage: UIImageView!
     @IBOutlet weak var footballerName: UILabel!
+    @IBOutlet var footballerView: UIView!
     
     private let segueName = "toDetailedImage"
     var footballer: Footballer!
+    
+    func toggleDarkTheme(isDarkThemeEnabled: Bool) {
+        if isDarkThemeEnabled {
+            footballerView.backgroundColor = UserSettings.darkThemeBackgroundColor
+            footballerName.textColor = UserSettings.darkThemeTextColor
+        } else {
+            footballerView.backgroundColor = UserSettings.lightThemeBackgroundColor
+            footballerName.textColor = UserSettings.lightThemeTextColor
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +35,12 @@ class FootballerViewController: UIViewController {
         footballerImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapGesture))
         footballerImage.addGestureRecognizer(tapGesture)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        toggleDarkTheme(isDarkThemeEnabled: UserSettings.darkThemeEnabled)
     }
     
     @objc func tapGesture(sender: UITapGestureRecognizer) {

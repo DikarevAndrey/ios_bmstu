@@ -14,12 +14,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var pageHeader: UIView!
     @IBOutlet weak var pageFooter: UIView!
     @IBOutlet weak var pageFooterLabel: UILabel!
+    @IBOutlet weak var pageHeaderLabel: UILabel!
     
     private let cellId = "FootballerTableViewCell"
     private let adCellId = "AdvertisingTableViewCell"
     private let segueName = "toFootballerCard"
     
     var model = FeedModel()
+    
+    func toggleDarkTheme(isDarkThemeEnabled: Bool) {
+        if isDarkThemeEnabled {
+            pageHeaderLabel.backgroundColor = UserSettings.darkThemeBackgroundColor
+            pageHeaderLabel.textColor = UserSettings.darkThemeTextColor
+            pageFooterLabel.backgroundColor = UserSettings.darkThemeBackgroundColor
+            pageFooterLabel.textColor = UserSettings.darkThemeTextColor
+        } else {
+            pageHeaderLabel.backgroundColor = UserSettings.lightThemeBackgroundColor
+            pageHeaderLabel.textColor = UserSettings.lightThemeTextColor
+            pageFooterLabel.backgroundColor = UserSettings.lightThemeBackgroundColor
+            pageFooterLabel.textColor = UserSettings.lightThemeTextColor
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +50,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        toggleDarkTheme(isDarkThemeEnabled: UserSettings.darkThemeEnabled)
     }
     
     func configureTableView() {

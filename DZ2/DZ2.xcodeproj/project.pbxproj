@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		55209E18218739CE00209866 /* ImageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55209E17218739CE00209866 /* ImageDetailViewController.swift */; };
 		555DD50F217DBD1600D63232 /* FootballerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555DD50E217DBD1600D63232 /* FootballerViewController.swift */; };
+		5567869321879B7600075A7C /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567869221879B7600075A7C /* UserSettings.swift */; };
+		5567869521879EF600075A7C /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5567869421879EF600075A7C /* UserSettingsViewController.swift */; };
 		55E27359217CAE750005CEC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E27358217CAE750005CEC6 /* AppDelegate.swift */; };
 		55E2735E217CAE750005CEC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E2735C217CAE750005CEC6 /* Main.storyboard */; };
 		55E27363217CAE760005CEC6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E27361217CAE760005CEC6 /* LaunchScreen.storyboard */; };
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		55209E17218739CE00209866 /* ImageDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailViewController.swift; sourceTree = "<group>"; };
 		555DD50E217DBD1600D63232 /* FootballerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootballerViewController.swift; sourceTree = "<group>"; };
+		5567869221879B7600075A7C /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		5567869421879EF600075A7C /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		55E27355217CAE750005CEC6 /* DZ2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DZ2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E27358217CAE750005CEC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55E2735D217CAE750005CEC6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				55E27358217CAE750005CEC6 /* AppDelegate.swift */,
 				55E27361217CAE760005CEC6 /* LaunchScreen.storyboard */,
 				55E2735C217CAE750005CEC6 /* Main.storyboard */,
+				5567869421879EF600075A7C /* UserSettingsViewController.swift */,
+				5567869221879B7600075A7C /* UserSettings.swift */,
 				55209E17218739CE00209866 /* ImageDetailViewController.swift */,
 				55F2D32F217CD22E000968A4 /* ViewController.swift */,
 				55E27374217CBBE80005CEC6 /* FeedModel.swift */,
@@ -165,7 +171,9 @@
 				55F2D330217CD22E000968A4 /* ViewController.swift in Sources */,
 				55209E18218739CE00209866 /* ImageDetailViewController.swift in Sources */,
 				55E27373217CBB330005CEC6 /* Footballer.swift in Sources */,
+				5567869321879B7600075A7C /* UserSettings.swift in Sources */,
 				55EEBCCC21874DA800A173EE /* AdvertisingTableViewCell.swift in Sources */,
+				5567869521879EF600075A7C /* UserSettingsViewController.swift in Sources */,
 				55E27378217CC1960005CEC6 /* FootballerTableViewCell.swift in Sources */,
 				55E27359217CAE750005CEC6 /* AppDelegate.swift in Sources */,
 				55E27375217CBBE80005CEC6 /* FeedModel.swift in Sources */,
