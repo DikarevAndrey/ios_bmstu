@@ -16,8 +16,10 @@ class ImageDetailViewController: UIViewController {
     
     func toggleDarkTheme(isDarkThemeEnabled: Bool) {
         if isDarkThemeEnabled {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.darkThemeBackgroundColor
             footballerImageView.backgroundColor = UserSettings.darkThemeBackgroundColor
         } else {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.lightThemeBackgroundColor
             footballerImageView.backgroundColor = UserSettings.lightThemeBackgroundColor
         }
     }

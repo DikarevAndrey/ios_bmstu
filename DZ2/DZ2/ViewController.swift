@@ -24,11 +24,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func toggleDarkTheme(isDarkThemeEnabled: Bool) {
         if isDarkThemeEnabled {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.darkThemeBackgroundColor
             pageHeaderLabel.backgroundColor = UserSettings.darkThemeBackgroundColor
             pageHeaderLabel.textColor = UserSettings.darkThemeTextColor
             pageFooterLabel.backgroundColor = UserSettings.darkThemeBackgroundColor
             pageFooterLabel.textColor = UserSettings.darkThemeTextColor
         } else {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.lightThemeBackgroundColor
             pageHeaderLabel.backgroundColor = UserSettings.lightThemeBackgroundColor
             pageHeaderLabel.textColor = UserSettings.lightThemeTextColor
             pageFooterLabel.backgroundColor = UserSettings.lightThemeBackgroundColor

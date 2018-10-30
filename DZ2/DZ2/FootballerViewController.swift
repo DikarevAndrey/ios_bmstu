@@ -18,9 +18,11 @@ class FootballerViewController: UIViewController {
     
     func toggleDarkTheme(isDarkThemeEnabled: Bool) {
         if isDarkThemeEnabled {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.darkThemeBackgroundColor
             footballerView.backgroundColor = UserSettings.darkThemeBackgroundColor
             footballerName.textColor = UserSettings.darkThemeTextColor
         } else {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.lightThemeBackgroundColor
             footballerView.backgroundColor = UserSettings.lightThemeBackgroundColor
             footballerName.textColor = UserSettings.lightThemeTextColor
         }

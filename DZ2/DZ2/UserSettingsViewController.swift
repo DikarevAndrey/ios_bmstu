@@ -21,11 +21,13 @@ class UserSettingsViewController: UIViewController {
     
     func toggleDarkTheme(isDarkThemeEnabled: Bool) {
         if isDarkThemeEnabled {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.darkThemeBackgroundColor
             darkThemeLabel.textColor = UserSettings.darkThemeTextColor
             darkThemeLabel.backgroundColor = UserSettings.darkThemeBackgroundColor
             darkThemeSwitch.backgroundColor = UserSettings.darkThemeBackgroundColor
             userSettingsView.backgroundColor = UserSettings.darkThemeBackgroundColor
         } else {
+            self.navigationController?.navigationBar.barTintColor  = UserSettings.lightThemeBackgroundColor
             darkThemeLabel.textColor = UserSettings.lightThemeTextColor
             darkThemeLabel.backgroundColor = UserSettings.lightThemeBackgroundColor
             darkThemeSwitch.backgroundColor = UserSettings.lightThemeBackgroundColor
